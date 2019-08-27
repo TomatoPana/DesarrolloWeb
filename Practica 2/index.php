@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="Control.php" method="post">
+  <form action="./Control.php" method="post">
     <label for="num1">Ingrese Limite de la serie:</label>
     <input type="text" name="num1" id="num1">
     <input type="submit" value="Enviar">

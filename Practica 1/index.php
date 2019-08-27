@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="Control.php" method="post">
+  <form action="./Control.php" method="post">
     <label for="num1">Ingrese numero 1:</label>
     <input type="text" name="num1" id="num1">
     <label for="num2">Ingrese numero 2:</label>
