@@ -7,4 +7,4 @@ $operador = $_POST['op'];
 $obj->setNumero1($numero1);
 $obj->setNumero2($numero2);
 $obj->setOperador($operador);
-echo 'La suma es: '.$obj->getResultado();
+echo 'La Operación es: '.$obj->getResultado();
