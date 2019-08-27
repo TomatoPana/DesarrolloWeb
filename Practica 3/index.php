@@ -37,8 +37,3 @@ class Primos {
     }
   }
 }
-
-$primos = new Primos();
-$primos->setLimite(10);
-$primos->calcularSerie();
-echo $primos->getSerie();
