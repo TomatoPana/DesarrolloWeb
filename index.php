@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Indice de practicas</title>
-  <link rel="stylesheet" href="dist/css/bootstrap.css">
-  <script defer src="dist/js/jquery.js"></script>
-  <script defer src="dist/js/popper.js"></script>
-  <script defer src="dist/js/tooltip.js"></script>
-  <script defer src="dist/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="/dist/css/bootstrap.css">
+  <script defer src="/dist/js/jquery.js"></script>
+  <script defer src="/dist/js/popper.js"></script>
+  <script defer src="/dist/js/tooltip.js"></script>
+  <script defer src="/dist/js/bootstrap.js"></script>
 </head>
 <body>
   <div class="container">
