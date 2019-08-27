@@ -13,7 +13,7 @@ class Fibonacci {
   }
 
   /**
-   * @var string $resultado El resultado impreso de la serie de Fibonacci
+   * @var array $resultado El resultado impreso de la serie de Fibonacci
    */
   protected $resultado;
 
@@ -36,10 +36,12 @@ class Fibonacci {
    * @return void
    */
   public function calcularSerie() {
-    $resultadoHandler = "";
-    for($item = 1; $item <= $this->limite; $item++) {
-      if($item = 1 || $item = 2){
-        $resultadoHandler .= "1, ";
+    $this->resultado = array();
+    for($item = 0; $item <= $this->limite; $item++) {
+      if($item == 0 || $item == 1){
+        array_push($this->resultado, 1);
+      } else {
+        array_push($this->resultado, $this->resultado[$item - 1] + $this->resultado[$item - 2]);
       }
     }
   }
@@ -51,19 +53,10 @@ class Fibonacci {
    * el cálculo previo resultará en un RuntimeException
    */
   public function getSerie() : string {
-    if(!isset($resultado)){
+    if(!isset($this->resultado)){
       throw new RuntimeException("Error, Calculo no efectuado");
     } else {
-      return $this->resultado;
+      return implode(",", $this->resultado);
     }
   }
-}
-
-try {
-  $serie = new Fibonacci();
-  $serie->setLimite(10);
-  $serie->calcularSerie();
-  echo $serie->getSerie();
-} catch (Exception $e) {
-  echo $e->getMessage();
 }
