@@ -1,5 +1,5 @@
 <?php
-//TODO ^,%(Porcentaje no Módulo),!,^2,sin,cos,tan,sqrt,DecToBin,BintoDec,DecToOct,OctToDec,DecToHex,HexToDec
+//TODO DecToBin,BintoDec,DecToOct,OctToDec,DecToHex,HexToDec
 class Calculadora {
     protected $numero1;
     protected $numero2;
@@ -52,6 +52,18 @@ class Calculadora {
     }
     public function tan(){
       $this->resultado = tan($this->numero1);
+    }
+    public function sqrt(){
+      if($this->numero > 0){
+        $numero = $this->numero1;
+        for($valorExacto = 0; $valorExacto*$valorExacto < $numero; $valorExacto++);
+        $potenciaExacta = --$valorExacto*$valorExacto;
+        for($indice = 0; $indice < 10; $indice++){
+          $division = $numero / $potenciaExacta;
+          $potenciaExacta = ($potenciaExacta + $division)/2;
+        }
+        $this->resultado = $potenciaExacta;
+      }
     }
     public function getResultado(){
         return $this->resultado;
