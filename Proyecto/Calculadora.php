@@ -1,5 +1,6 @@
 <?php
-//TODO DecToBin,BintoDec,DecToOct,OctToDec,DecToHex,HexToDec
+//TODO BintoDec,DecToOct,OctToDec,DecToHex,HexToDec
+
 class Calculadora {
   protected $numero1;
   protected $numero2;
@@ -77,5 +78,18 @@ class Calculadora {
     }while($numero != 0);
     $resultado = array_reverse($resultado);
     $this->resultado = implode("", $resultado);
+  }
+  public function BintoDec(){
+    $numero = (string)$this->numero1;
+    $limite = strlen($numero);
+    $resultado = 0;
+    $potencia = $limite-1;
+    for($posicion = 0; $posicion < $limite; $posicion++){
+      if($numero[$posicion] != '0' && $numero[$posicion] != '1'){
+        throw new ErrorException("Syntax Error: Expected binary input", -1, E_ERROR);
+      }
+      $resultado = $resultado + (intval($numero[$posicion]) * (2**$potencia--));
+    }
+    $this->resultado = $resultado;
   }
 }
