@@ -1,5 +1,5 @@
 <?php
-//TODO BintoDec,DecToOct,OctToDec,DecToHex,HexToDec
+//TODO DecToOct,OctToDec,DecToHex,HexToDec
 
 class Calculadora {
   protected $numero1;
