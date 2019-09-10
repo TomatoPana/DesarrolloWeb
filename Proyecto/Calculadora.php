@@ -97,7 +97,7 @@ class Calculadora {
     $this->resultado = tan($this->numero1);
   }
   protected function sqrt(){
-    if($this->numero > 0){
+    if($this->numero1 > 0){
       $numero = $this->numero1;
       for($valorExacto = 0; $valorExacto*$valorExacto < $numero; $valorExacto++);
       $potenciaExacta = --$valorExacto*$valorExacto;
