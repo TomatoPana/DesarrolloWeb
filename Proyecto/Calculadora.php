@@ -1,5 +1,5 @@
 <?php
-//TODO DecToOct,OctToDec,DecToHex,HexToDec
+//TODO DecToHex,HexToDec
 
 class Calculadora {
   protected $numero1;
@@ -103,5 +103,16 @@ class Calculadora {
       $placeValue *= 10;
     }
     $this->resultado = $octalNum;
+  }
+  public function OctToDec(){
+    $numeroOctal = $this->numero1;
+    $resultado = 0;
+    $residuo = 0;
+    for($indice = 0; $numeroOctal != 0; $indice++){
+      $residuo = $numeroOctal % 10;
+      $numeroOctal = intval($numeroOctal / 10);
+      $resultado += $residuo * pow(8, $indice);
+    }
+    $this->resultado = $resultado;
   }
 }
