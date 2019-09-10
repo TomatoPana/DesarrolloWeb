@@ -41,7 +41,6 @@
     <label hidden id="lblBox4" for="txtBox3">Numero 2</label>
     <input hidden type="text" name="txtBox3" id="txtBox3">
     <br>
-    
     <input type="submit" value="Calcular">
   </form>
   <script src="../dist/js/main.js"></script>

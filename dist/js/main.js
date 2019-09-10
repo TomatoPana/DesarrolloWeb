@@ -1,5 +1,3 @@
-'use strict';
-
 const NumericIntegerRegexp = /^\d+$/;
 const NumericFloatRegexp = /^\d+(?:\.\d+)?$/;
 const TwoValuesOperationsRegexp = /^[\+\*\/\-\%\^]$/;
@@ -78,7 +76,10 @@ lstBox1.onchange = function() {
 }
 
 formCalculadora.onsubmit = function(event) {
-  if(txtBox1.value.length == 0){
+  if(lstBox1.options.selectedIndex == 0){
+    lblMessages.innerHTML = "Selecciona un tipo de operación";
+    event.preventDefault();
+  } else if(txtBox1.value.length == 0){
     lblMessages.innerText = "El campo no puede ir vacío";
     event.preventDefault();
   } else if(!NumericIntegerRegexp.test(txtBox1.value)){
@@ -88,4 +89,23 @@ formCalculadora.onsubmit = function(event) {
     lblMessages.innerText = "Todo bien";
     event.preventDefault();
   }
+  const data = {
+    tipoOperacion: 1,
+    numero1: 42,
+    operador: 1,
+    numero2: 16,
+  }
+  fetch("Proyecto/Control.php", {
+    method: 'post',
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    },
+    body: JSON.stringify(data),
+  }).then(function(response){
+    return response.json();
+  }).then(function(Json){
+    console.log(Json);
+  }).catch(function(error){
+    console.error('Error: ', error);
+  });
 }
