@@ -54,6 +54,28 @@ class Calculadora {
       break;
     }
   }
+  public function setConversor($operador){
+    switch($operador){
+      case 1:
+         $this->DecToBin();
+      break;
+      case 2:
+         $this->BintoDec();
+      break;
+      case 3:
+         $this->DecToOct();
+      break;
+      case 4:
+         $this->OctToDec();
+      break;
+      case 5:
+         $this->DecToHex();
+      break;
+      case 6:
+         $this->HexToDec();
+      break;
+    }
+  }
   protected function square(){
     $this->resultado = $this->numero1 * $this->numero1;
   }
@@ -86,7 +108,7 @@ class Calculadora {
       $this->resultado = $potenciaExacta;
     }
   }
-  public function DecToBin(){
+  protected function DecToBin(){
     $numero = (int)$this->numero1;
     $resultado = array();
     do{
@@ -96,7 +118,7 @@ class Calculadora {
     $resultado = array_reverse($resultado);
     $this->resultado = implode("", $resultado);
   }
-  public function BintoDec(){
+  protected function BintoDec(){
     $numero = (string)$this->numero1;
     $limite = strlen($numero);
     $resultado = 0;
@@ -109,7 +131,7 @@ class Calculadora {
     }
     $this->resultado = $resultado;
   }
-  public function DecToOct(){
+  protected function DecToOct(){
     $decimalNum = $this->numero1;
     $octalNum = 0;
     $placeValue = 1;
@@ -121,7 +143,7 @@ class Calculadora {
     }
     $this->resultado = $octalNum;
   }
-  public function OctToDec(){
+  protected function OctToDec(){
     $numeroOctal = $this->numero1;
     $resultado = 0;
     $residuo = 0;
@@ -132,7 +154,7 @@ class Calculadora {
     }
     $this->resultado = $resultado;
   }
-  public function DecToHex(){
+  protected function DecToHex(){
     $decimalNum = $this->numero1;
     $hexadecimalNum = "";
 
@@ -165,7 +187,7 @@ class Calculadora {
     $hexadecimalNum = strrev($hexadecimalNum);
     $this->resultado = $hexadecimalNum;
   }
-  public function HexToDec(){
+  protected function HexToDec(){
     $hexadecimalNum = $this->numero1;
     $resultado = 0;
     $valorIndividual = 0;

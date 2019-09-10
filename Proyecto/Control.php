@@ -12,10 +12,14 @@ switch($json['tipoOperacion']){
     $resultado = $this->getResultado();
   break;
   case 2:
-    
+    $this->setNumero1($json['numero1']);
+    $this->setOneNumberOperador($json['operador']);
+    $resultado = $this->getResultado();
   break;
   case 3:
-
+    $this->setNumero1($json['numero1']);
+    $this->setConversor($json['operador']);
+    $resultado = $this->getResultado();
   break;
 }
 echo json_encode(array("resultado"=>$resultado));
