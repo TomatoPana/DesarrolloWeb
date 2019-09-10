@@ -1,8 +1,8 @@
 const NumericIntegerRegexp = /^\d+$/;
 const NumericFloatRegexp = /^\d+(?:\.\d+)?$/;
 const TwoValuesOperationsRegexp = /^[\+\*\/\-\%\^]$/;
-const OneValueOperationsRegexp = /^[!]|(\^2)|sin|cos|tan|sqrt$/;
-const BinaryNumberRegexp = /^[0-1]+&/;
+const OneValueOperationsRegexp = /^([!]|(\^2)|sin|cos|tan|sqrt){1}$/;
+const BinaryNumberRegexp = /^[0-1]+$/;
 const OctalNumberRegexp = /^[0-7]+$/;
 const HexadecimalNumberRegexp = /^[0-9A-Fa-f]+$/;
 
@@ -128,10 +128,98 @@ formCalculadora.onsubmit = function(event) {
       }
     break;
     case 3:
-
+      if(txtBox1.value.length == 0) {
+        lblMessages.innerText = "Ingresa un número en el Campo 1";
+      }
+      switch(lstBox2.options.selectedIndex){
+        case 0:
+          lblMessages.innerText = "Selecciona una conversión";
+        break;
+        case 1:
+          if(!NumericIntegerRegexp.test(txtBox1.value)){
+            lblMessages.innerText = "Ingresa un número decimal";
+          } else {
+            lblMessages.innerText = "";
+            data = {
+              tipoOperacion: 3,
+              numero1: txtBox1.value,
+              operador: 1,
+              numero2: null,
+            }
+          }
+        break;
+        case 2:
+          if(!BinaryNumberRegexp.test(txtBox1.value)){
+            lblMessages.innerText = "Ingresa un número binario";
+          } else {
+            lblMessages.innerText = "";
+            data = {
+              tipoOperacion: 3,
+              numero1: txtBox1.value,
+              operador: 2,
+              numero2: null,
+            }
+          }
+        break;
+        case 3:
+            if(!NumericIntegerRegexp.test(txtBox1.value)){
+              lblMessages.innerText = "Ingresa un número decimal";
+            } else {
+              lblMessages.innerText = "";
+              data = {
+                tipoOperacion: 3,
+                numero1: txtBox1.value,
+                operador: 3,
+                numero2: null,
+              }
+            }
+        break;
+        case 4:
+            if(!OctalNumberRegexp.test(txtBox1.value)){
+              lblMessages.innerText = "Ingresa un número octal";
+            } else {
+              lblMessages.innerText = "";
+              data = {
+                tipoOperacion: 3,
+                numero1: txtBox1.value,
+                operador: 4,
+                numero2: null,
+              }
+            }
+        break;
+        case 5:
+            if(!NumericIntegerRegexp.test(txtBox1.value)){
+              lblMessages.innerText = "Ingresa un número decimal";
+            } else {
+              lblMessages.innerText = "";
+              data = {
+                tipoOperacion: 3,
+                numero1: txtBox1.value,
+                operador: 5,
+                numero2: null,
+              }
+            }
+        break;
+        case 6:
+            if(!HexadecimalNumberRegexp.test(txtBox1.value)){
+              lblMessages.innerText = "Ingresa un número decimal";
+            } else {
+              lblMessages.innerText = "";
+              data = {
+                tipoOperacion: 3,
+                numero1: txtBox1.value,
+                operador: 6,
+                numero2: null,
+              }
+            }
+        break;
+        default:
+          lblMessages.innerText = "Selecciona una conversión";
+        break;
+      }
     break;
     default:
-
+      lblMessages.innerText = "Selecciona un tipo de operación";
     break;
   }
   /* else if(txtBox1.value.length == 0){
