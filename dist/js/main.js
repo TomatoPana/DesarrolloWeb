@@ -1,10 +1,10 @@
-const NumericIntegerRegexp = /^\d+$/;
-const NumericFloatRegexp = /^\d+(?:\.\d+)?$/;
+const NumericIntegerRegexp      = /^\d+$/;
+const NumericFloatRegexp        = /^\d+(?:\.\d+)?$/;
 const TwoValuesOperationsRegexp = /^[\+\*\/\-\%\^]$/;
-const OneValueOperationsRegexp = /^([!]|(\^2)|sin|cos|tan|sqrt){1}$/;
-const BinaryNumberRegexp = /^[0-1]+$/;
-const OctalNumberRegexp = /^[0-7]+$/;
-const HexadecimalNumberRegexp = /^[0-9A-Fa-f]+$/;
+const OneValueOperationsRegexp  = /^([!]|(\^2)|sin|cos|tan|sqrt){1}$/;
+const BinaryNumberRegexp        = /^[0-1]+$/;
+const OctalNumberRegexp         = /^[0-7]+$/;
+const HexadecimalNumberRegexp   = /^[0-9A-Fa-f]+$/;
 
 const formCalculadora  = document.getElementById("formCalculadora");
 const lstBox1          = document.getElementById("lstBox1");
