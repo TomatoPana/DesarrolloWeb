@@ -2,53 +2,76 @@
 
 const NumericIntegerRegexp = /^\d+$/;
 const NumericFloatRegexp = /^\d+(?:\.\d+)?$/;
+const TwoValuesOperationsRegexp = /^[\+\*\/\-\%\^]$/;
+const OneValueOperationsRegexp = /^[!]|(^2)|sin|cos|tan|sqrt$/;
 
 const formCalculadora = document.getElementById("formCalculadora");
-const lstbox1 = document.getElementById("lstbox1");
+const lstBox1 = document.getElementById("lstBox1");
 const lblMessages = document.getElementById("lblMessages");
 
-const txtBox1 = document.getElementById("txtBox1");
 const lblBox1 = document.getElementById("lblBox1");
+const txtBox1 = document.getElementById("txtBox1");
 
-const txtBox2 = document.getElementById("txtBox2");
 const lblBox2 = document.getElementById("lblBox2");
+const txtBox2 = document.getElementById("txtBox2");
 
-const txtBox3 = document.getElementById("txtBox3");
 const lblBox3 = document.getElementById("lblBox3");
+const lstBox2 = document.getElementById("lstBox2");
 
-lstbox1.onchange = function(event) {
-  switch(lstbox1.options.selectedIndex){
+const lblBox4 = document.getElementById("lblBox4");
+const txtBox3 = document.getElementById("txtBox3");
+
+lstBox1.onchange = function() {
+  switch(lstBox1.options.selectedIndex){
+    case 0:
+      lblBox1.hidden = true;
+      txtBox1.hidden = true;
+      lblBox2.hidden = true;
+      txtBox2.hidden = true;
+      lblBox3.hidden = true;
+      lstBox2.hidden = true;
+      lblBox4.hidden = true;
+      txtBox3.hidden = true;
+    break;
     case 1:
-      txtBox1.hidden = false;
       lblBox1.hidden = false;
-      txtBox2.hidden = false;
+      txtBox1.hidden = false;
       lblBox2.hidden = false;
+      txtBox2.hidden = false;
+      lblBox3.hidden = true;
+      lstBox2.hidden = true;
+      lblBox4.hidden = false;
       txtBox3.hidden = false;
-      lblBox3.hidden = false;
     break;
     case 2:
-      txtBox1.hidden = false;
       lblBox1.hidden = false;
-      txtBox2.hidden = false;
+      txtBox1.hidden = false;
       lblBox2.hidden = false;
-      txtBox3.hidden = true;
+      txtBox2.hidden = false;
       lblBox3.hidden = true;
+      lstBox2.hidden = true;
+      lblBox4.hidden = true;
+      txtBox3.hidden = true;
     break;
     case 3:
-      txtBox1.hidden = false;
       lblBox1.hidden = false;
-      txtBox2.hidden = false;
-      lblBox2.hidden = false;
+      txtBox1.hidden = false;
+      lblBox2.hidden = true;
+      txtBox2.hidden = true;
+      lblBox3.hidden = false;
+      lstBox2.hidden = false;
+      lblBox4.hidden = true;
       txtBox3.hidden = true;
-      lblBox3.hidden = true;
     break;
     default:
-      txtBox1.hidden = true;
       lblBox1.hidden = true;
-      txtBox2.hidden = true;
+      txtBox1.hidden = true;
       lblBox2.hidden = true;
-      txtBox3.hidden = true;
+      txtBox2.hidden = true;
       lblBox3.hidden = true;
+      lstBox2.hidden = true;
+      lblBox4.hidden = true;
+      txtBox3.hidden = true;
       lblMessages.innerText = "¿Que hiciste?";
     break;
   }

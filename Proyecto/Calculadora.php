@@ -35,7 +35,7 @@ class Calculadora {
     $this->resultado = $this->numero1 * ($this->numero2 / 100);
   }
   public function pot(){
-    $this->resultado = $this->numero1 ** $this->numero1;
+    $this->resultado = $this->numero1 ** $this->numero2;
   }
   public function factorial(){
     if($this->numero1 > 0){

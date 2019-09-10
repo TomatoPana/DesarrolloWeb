@@ -6,7 +6,8 @@
     {
       "label": "Run PHP Build-In Server",
       "type": "shell",
-      "command": "./serve.bat"
+      "command": "./serve.bat",
+      "problemMatcher": []
     }
   ]
 }

@@ -17,26 +17,31 @@
       <option value="3">Conversiones</option>
     </select>
     <br>
+
     <label hidden id="lblBox1" for="txtBox1">Numero 1</label>
     <input hidden type="text" name="txtBox1" id="txtBox1">
     <br>
+
     <label hidden id="lblBox2" for="txtBox2">Operación</label>
     <input hidden type="text" name="txtBox2" id="txtBox2">
     <br>
+
     <label hidden id="lblBox3" for="lstBox2">Conversion</label>
-    <select name="lstBox2" id="lstBox2">
+    <select hidden name="lstBox2" id="lstBox2">
       <option selected value="0">Selecciona</option>
-      <option value="1"></option>
-      <option value="2"></option>
-      <option value="3"></option>
-      <option value="4"></option>
-      <option value="5"></option>
-      <option value="6"></option>
+      <option value="1">Decimal a Binaria</option>
+      <option value="2">Binaria a Decimal</option>
+      <option value="3">Decimal a Octal</option>
+      <option value="4">Octal a Decimal</option>
+      <option value="5">Decimal a Hexadecimal</option>
+      <option value="6">Hexadecimal a Decimal</option>
     </select>
     <br>
+
     <label hidden id="lblBox4" for="txtBox3">Numero 2</label>
     <input hidden type="text" name="txtBox3" id="txtBox3">
     <br>
+    
     <input type="submit" value="Calcular">
   </form>
   <script src="../dist/js/main.js"></script>
