@@ -81,6 +81,7 @@ lstBox1.onchange = function() {
 }
 
 formCalculadora.onsubmit = function(event) {
+  lblResultado.innerText = "";
   var data = {};
   var datasend = false;
   event.preventDefault();
@@ -244,7 +245,7 @@ formCalculadora.onsubmit = function(event) {
     }).then(function(response){
       return response.json();
     }).then(function(Json){
-      lblResultado.innerText = "";
+      lblResultado.innerText = "Resultado: " + Json.resultado;
       console.log(Json);
     }).catch(function(error){
       console.error('Error: ', error);

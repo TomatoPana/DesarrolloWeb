@@ -6,20 +6,20 @@ $calculadora = new Calculadora();
 $resultado = 0;
 switch($json['tipoOperacion']){
   case 1:
-    $this->setNumero1($json['numero1']);
-    $this->setNumero2($json['numero2']);
-    $this->setOperador($json['operador']);
-    $resultado = $this->getResultado();
+    $calculadora->setNumero1($json['numero1']);
+    $calculadora->setNumero2($json['numero2']);
+    $calculadora->setOperador($json['operador']);
+    $resultado = $calculadora->getResultado();
   break;
   case 2:
-    $this->setNumero1($json['numero1']);
-    $this->setOneNumberOperador($json['operador']);
-    $resultado = $this->getResultado();
+    $calculadora->setNumero1($json['numero1']);
+    $calculadora->setOneNumberOperador($json['operador']);
+    $resultado = $calculadora->getResultado();
   break;
   case 3:
-    $this->setNumero1($json['numero1']);
-    $this->setConversor($json['operador']);
-    $resultado = $this->getResultado();
+    $calculadora->setNumero1($json['numero1']);
+    $calculadora->setConversor($json['operador']);
+    $resultado = $calculadora->getResultado();
   break;
 }
 echo json_encode(array("resultado"=>$resultado));
