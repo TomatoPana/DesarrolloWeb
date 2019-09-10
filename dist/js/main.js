@@ -80,6 +80,7 @@ lstBox1.onchange = function() {
 
 formCalculadora.onsubmit = function(event) {
   var data = {};
+  var datasend = false;
   event.preventDefault();
   switch(lstBox1.options.selectedIndex){
     case 0:
@@ -106,6 +107,7 @@ formCalculadora.onsubmit = function(event) {
           operador: txtBox2.value,
           numero2: txtBox3.value,
         }
+        datasend = true;
       }
     break;
     case 2:
@@ -125,6 +127,7 @@ formCalculadora.onsubmit = function(event) {
           operador: txtBox2.value,
           numero2: null,
         }
+        datasend = true;
       }
     break;
     case 3:
@@ -146,6 +149,7 @@ formCalculadora.onsubmit = function(event) {
               operador: 1,
               numero2: null,
             }
+            datasend = true;
           }
         break;
         case 2:
@@ -159,6 +163,7 @@ formCalculadora.onsubmit = function(event) {
               operador: 2,
               numero2: null,
             }
+            datasend = true;
           }
         break;
         case 3:
@@ -172,6 +177,7 @@ formCalculadora.onsubmit = function(event) {
                 operador: 3,
                 numero2: null,
               }
+              datasend = true;
             }
         break;
         case 4:
@@ -185,6 +191,7 @@ formCalculadora.onsubmit = function(event) {
                 operador: 4,
                 numero2: null,
               }
+              datasend = true;
             }
         break;
         case 5:
@@ -198,6 +205,7 @@ formCalculadora.onsubmit = function(event) {
                 operador: 5,
                 numero2: null,
               }
+              datasend = true;
             }
         break;
         case 6:
@@ -211,6 +219,7 @@ formCalculadora.onsubmit = function(event) {
                 operador: 6,
                 numero2: null,
               }
+              datasend = true;
             }
         break;
         default:
@@ -222,34 +231,21 @@ formCalculadora.onsubmit = function(event) {
       lblMessages.innerText = "Selecciona un tipo de operación";
     break;
   }
-  /* else if(txtBox1.value.length == 0){
-    lblMessages.innerText = "El campo no puede ir vacío";
-    event.preventDefault();
-  } else if(!NumericIntegerRegexp.test(txtBox1.value)){
-    lblMessages.innerText = "El campo solo puede contener números";
-    event.preventDefault();
-  } else {
-    lblMessages.innerText = "Todo bien";
-    event.preventDefault();
+
+  if(datasend){
+    fetch("Proyecto/Control.php", {
+      method: 'post',
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      },
+      body: JSON.stringify(data),
+    }).then(function(response){
+      return response.json();
+    }).then(function(Json){
+      console.log(Json);
+    }).catch(function(error){
+      console.error('Error: ', error);
+    });
   }
-  const data = {
-    tipoOperacion: 1,
-    numero1: 42,
-    operador: 1,
-    numero2: 16,
-  }
-  fetch("Proyecto/Control.php", {
-    method: 'post',
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    },
-    body: JSON.stringify(data),
-  }).then(function(response){
-    return response.json();
-  }).then(function(Json){
-    console.log(Json);
-  }).catch(function(error){
-    console.error('Error: ', error);
-  }); */
-  console.log(data);
+
 }
