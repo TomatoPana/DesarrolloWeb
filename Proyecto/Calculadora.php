@@ -1,6 +1,4 @@
 <?php
-//TODO HexToDec
-
 class Calculadora {
   protected $numero1;
   protected $numero2;
@@ -147,5 +145,38 @@ class Calculadora {
     }
     $hexadecimalNum = strrev($hexadecimalNum);
     echo $hexadecimalNum;
+  }
+  public function HexToDec(){
+    $hexadecimalNum = "12F7";
+    $resultado = 0;
+    $valorIndividual = 0;
+    $limite = strlen($hexadecimalNum);
+    for($indice = 0; $indice < $limite; $indice++){
+      switch($hexadecimalNum[$indice]){
+        case 'A':case 'a':
+          $valorIndividual = 10;
+        break;
+        case 'B':case 'b':
+          $valorIndividual = 11;
+        break;
+        case 'C':case 'c':
+          $valorIndividual = 12;
+        break;
+        case 'D':case 'd':
+          $valorIndividual = 13;
+        break;
+        case 'E':case 'e':
+          $valorIndividual = 14;
+        break;
+        case 'F':case 'f':
+          $valorIndividual = 15;
+        break;
+        default:
+          $valorIndividual = intval($hexadecimalNum[$indice]);
+        break;
+      }
+      $resultado += $valorIndividual*pow(16, $limite-$indice-1);
+    }
+    echo $resultado;
   }
 }
