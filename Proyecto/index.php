@@ -43,6 +43,7 @@
     <br>
     <input type="submit" value="Calcular">
   </form>
+  <h4 id="lblResultado"></h4>
   <script src="../dist/js/main.js"></script>
 </body>
 </html>

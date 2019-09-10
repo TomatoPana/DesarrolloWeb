@@ -11,31 +11,53 @@ class Calculadora {
       $this->numero2 = $numero2;
   }
   public function setOperador($operador){
-      switch($operador){
-          case '+':
-              $this->resultado = $this->numero1 + $this->numero2;
-          break;
-          case '-':
-              $this->resultado = $this->numero1 - $this->numero2;
-          break;
-          case '*':
-              $this->resultado = $this->numero1 * $this->numero2;
-          break;
-          case '/':
-              $this->resultado = $this->numero1 / $this->numero2;
-          break;
-      }
+    switch($operador){
+      case '+':
+        $this->resultado = $this->numero1 + $this->numero2;
+      break;
+      case '-':
+        $this->resultado = $this->numero1 - $this->numero2;
+      break;
+      case '*':
+        $this->resultado = $this->numero1 * $this->numero2;
+      break;
+      case '/':
+        $this->resultado = $this->numero1 / $this->numero2;
+      break;
+      case '%':
+        $this->resultado = $this->numero1 * ($this->numero2 / 100);
+      break;
+      case '^':
+        $this->resultado = $this->numero1 ** $this->numero2;
+      break;
+    }
   }
-  public function square(){
+  public function setOneNumberOperador($operador){
+    switch($operador){
+      case '^2':
+        $this->square();
+      break;
+      case '!':
+        $this->factorial();
+      break;
+      case 'sin':
+        $this->sin();
+      break;
+      case 'cos':
+        $this->cos();
+      break;
+      case 'tan':
+        $this->tan();
+      break;
+      case 'sqrt':
+        $this->sqrt();
+      break;
+    }
+  }
+  protected function square(){
     $this->resultado = $this->numero1 * $this->numero1;
   }
-  public function porcentaje(){
-    $this->resultado = $this->numero1 * ($this->numero2 / 100);
-  }
-  public function pot(){
-    $this->resultado = $this->numero1 ** $this->numero2;
-  }
-  public function factorial(){
+  protected function factorial(){
     if($this->numero1 > 0){
       $this->resultado = 1;
       for ($i=1; $i <= $this->numero1; $i++) { 
@@ -43,16 +65,16 @@ class Calculadora {
       }
     }
   }
-  public function sin(){
+  protected function sin(){
     $this->resultado = sin($this->numero1);
   }
-  public function cos(){
+  protected function cos(){
     $this->resultado = cos($this->numero1);
   }
-  public function tan(){
+  protected function tan(){
     $this->resultado = tan($this->numero1);
   }
-  public function sqrt(){
+  protected function sqrt(){
     if($this->numero > 0){
       $numero = $this->numero1;
       for($valorExacto = 0; $valorExacto*$valorExacto < $numero; $valorExacto++);
@@ -63,9 +85,6 @@ class Calculadora {
       }
       $this->resultado = $potenciaExacta;
     }
-  }
-  public function getResultado(){
-      return $this->resultado;
   }
   public function DecToBin(){
     $numero = (int)$this->numero1;
@@ -114,7 +133,7 @@ class Calculadora {
     $this->resultado = $resultado;
   }
   public function DecToHex(){
-    $decimalNum = 4855;
+    $decimalNum = $this->numero1;
     $hexadecimalNum = "";
 
     while ($decimalNum != 0) {
@@ -144,10 +163,10 @@ class Calculadora {
       $decimalNum = intval($decimalNum / 16);
     }
     $hexadecimalNum = strrev($hexadecimalNum);
-    echo $hexadecimalNum;
+    $this->resultado = $hexadecimalNum;
   }
   public function HexToDec(){
-    $hexadecimalNum = "12F7";
+    $hexadecimalNum = $this->numero1;
     $resultado = 0;
     $valorIndividual = 0;
     $limite = strlen($hexadecimalNum);
@@ -177,6 +196,9 @@ class Calculadora {
       }
       $resultado += $valorIndividual*pow(16, $limite-$indice-1);
     }
-    echo $resultado;
+    $this->resultado = $resultado;
+  }
+  public function getResultado(){
+    return $this->resultado;
   }
 }

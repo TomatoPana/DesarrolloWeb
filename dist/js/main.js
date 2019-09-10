@@ -22,6 +22,8 @@ const lstBox2          = document.getElementById("lstBox2");
 const lblBox4          = document.getElementById("lblBox4");
 const txtBox3          = document.getElementById("txtBox3");
 
+const lblResultado     = document.getElementById("lblResultado");
+
 lstBox1.onchange = function() {
   switch(lstBox1.options.selectedIndex){
     case 0:
@@ -242,6 +244,7 @@ formCalculadora.onsubmit = function(event) {
     }).then(function(response){
       return response.json();
     }).then(function(Json){
+      lblResultado.innerText = "";
       console.log(Json);
     }).catch(function(error){
       console.error('Error: ', error);
