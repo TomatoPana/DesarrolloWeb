@@ -92,4 +92,16 @@ class Calculadora {
     }
     $this->resultado = $resultado;
   }
+  public function DecToOct(){
+    $decimalNum = $this->numero1;
+    $octalNum = 0;
+    $placeValue = 1;
+
+    while ($decimalNum != 0) {
+      $octalNum += ($decimalNum % 8) * $placeValue;
+      $decimalNum = intval($decimalNum / 8);
+      $placeValue *= 10;
+    }
+    $this->resultado = $octalNum;
+  }
 }
