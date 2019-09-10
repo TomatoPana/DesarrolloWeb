@@ -1,5 +1,5 @@
 <?php
-//TODO DecToHex,HexToDec
+//TODO HexToDec
 
 class Calculadora {
   protected $numero1;
@@ -114,5 +114,38 @@ class Calculadora {
       $resultado += $residuo * pow(8, $indice);
     }
     $this->resultado = $resultado;
+  }
+  public function DecToHex(){
+    $decimalNum = 4855;
+    $hexadecimalNum = "";
+
+    while ($decimalNum != 0) {
+      $valorParcial = ($decimalNum % 16);
+      switch($valorParcial){
+        case 10:
+          $hexadecimalNum .= 'A';
+        break;
+        case 11:
+          $hexadecimalNum .= 'B';
+        break;
+        case 12:
+          $hexadecimalNum .= 'C';
+        break;
+        case 13:
+          $hexadecimalNum .= 'D';
+        break;
+        case 14:
+          $hexadecimalNum .= 'E';
+        break;
+        case 15:
+          $hexadecimalNum .= 'F';
+        break;
+        default:
+          $hexadecimalNum .= strval($valorParcial);
+      }
+      $decimalNum = intval($decimalNum / 16);
+    }
+    $hexadecimalNum = strrev($hexadecimalNum);
+    echo $hexadecimalNum;
   }
 }
