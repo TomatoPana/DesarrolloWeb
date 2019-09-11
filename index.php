@@ -39,8 +39,8 @@
           <td>Serie de Fibonacci</td>
           <td><a href="/Practica 2">Ir a la Práctica</a></td>
           <td>
-            <div class="alert alert-success" role="alert">
-              Entregada!
+            <div class="alert alert-warning" role="alert">
+              No Entregada!
             </div>
           </td>
         </tr>
@@ -66,14 +66,6 @@
         </tr>
       </tbody>
     </table>
-
-
-
-
-
-
-
-    
   </div>
 </body>
 </html>
