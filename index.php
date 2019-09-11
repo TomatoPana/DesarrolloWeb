@@ -39,8 +39,8 @@
           <td>Serie de Fibonacci</td>
           <td><a href="/Practica 2">Ir a la Práctica</a></td>
           <td>
-            <div class="alert alert-warning" role="alert">
-              No Entregada!
+            <div class="alert alert-success" role="alert">
+              Entregada!
             </div>
           </td>
         </tr>
@@ -49,8 +49,18 @@
           <td>Numeros primos</td>
           <td><a href="/Practica 3">Ir a la Práctica</a></td>
           <td>
-            <div class="alert alert-warning" role="alert">
-              No Entregada!
+            <div class="alert alert-success" role="alert">
+              Entregada!
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Proyecto</td>
+          <td><a href="/Proyecto">Ir a la Práctica</a></td>
+          <td>
+            <div class="alert alert-success" role="alert">
+              Entregada!
             </div>
           </td>
         </tr>
