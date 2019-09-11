@@ -14,13 +14,6 @@ class Primos {
         $item++;
       } else if($numero == 2){
         array_push($this->resultado, $numero);
-
-
-
-
-
-
-        
         $item++;
       } else {
         for($count = 2; $count < $numero; $count++){
