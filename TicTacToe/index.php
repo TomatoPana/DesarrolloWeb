@@ -1,34 +1,3 @@
-<?php
-class TicTacToe {
- 
-  function imprimirJuego() {
-    echo '
-    <table class="game">
-    <tbody>
-      <tr class="gameRow">
-        <td class="gameCell x00" id="00"></td>
-        <td class="gameCell x01" id="01"></td>
-        <td class="gameCell x02" id="02"></td>
-      </tr>
-      <tr class="gameRow">
-        <td class="gameCell x10" id="10"></td>
-        <td class="gameCell x11" id="11"></td>
-        <td class="gameCell x12" id="12"></td>
-      </tr>
-      <tr class="gameRow">
-        <td class="gameCell x20" id="20"></td>
-        <td class="gameCell x21" id="21"></td>
-        <td class="gameCell x22" id="22"></td>
-      </tr>
-    </tbody>
-  </table>
-    ';
-  }
-}
-
-$juego = new TicTacToe();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,10 +13,16 @@ $juego = new TicTacToe();
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <?php $juego->imprimirJuego(); ?>
+        <div id="game"></div>
       </div>
       <div class="col-4">
         <h3>Juego de Gato</h3>
+        <h5>Selecciona el tipo de juego!</h5>
+        <select name="gametype" id="selector">
+          <option value="1">Jugador 1 vs Jugador 2</option>
+          <option value="2">Jugador 1 vs Computadora</option>
+        </select>
+        <hr>
         <h6 id="turnos">Siguiente turno: <h6 id="turno"></h6></h6>
         <h6 id="estado">X</h6>
         <h6 id="ganador"></h6>

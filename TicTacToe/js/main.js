@@ -6,23 +6,37 @@ $(function() {
     [null, null, null],
     [null, null, null]
   ];
+  var twoPlayers = false;
   var count = 0;
   $("#00").click(function(){
     if($("#00").text().length != 0){
       console.warn("Already set [0,0]");
     } else {
       if(!gameOver){
-        if(turno){
+        if(twoPlayers){
+          if(turno){
+            $("#00").html("X");
+            turno = !turno; 
+            $("#estado").html("O");
+            gameStatus[0][0] = true;
+            count++;
+          } else {
+            $("#00").html("O");
+            turno = !turno; 
+            $("#estado").html("X");
+            gameStatus[0][0] = false;
+            count++;
+          }
+        } else {
           $("#00").html("X");
-          turno = !turno; 
-          $("#estado").html("O");
           gameStatus[0][0] = true;
           count++;
-        } else {
-          $("#00").html("O");
-          turno = !turno; 
-          $("#estado").html("X");
-          gameStatus[0][0] = false;
+          do {
+            var pcRow = Math.floor(Math.random()*3);
+            var pcColumn = Math.floor(Math.random()*3);
+          } while (gameStatus[pcRow][pcColumn] !== null);
+          $("#"+pcRow+pcColumn).html("O");
+          gameStatus[pcRow][pcColumn] = false;
           count++;
         }
         checkGameStatus();
