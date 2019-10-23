@@ -7,13 +7,16 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/chart.css">
 </head>
 <body>
   <br>
   <div class="container">
     <div class="row">
       <div class="col-8">
-        <div id="game"></div>
+        <div id="game">Loading...</div>
+        <br>
+        <canvas id="stadistics" width="400" height="400"></canvas>
       </div>
       <div class="col-4">
         <h3>Juego de Gato</h3>
@@ -26,12 +29,15 @@
         <h6 id="turnos">Siguiente turno: <h6 id="turno"></h6></h6>
         <h6 id="estado">X</h6>
         <h6 id="ganador"></h6>
+        <button class="btn" id="newgame">Nuevo juego</button>
+        <button class="btn" id="showStadistics">Mostrar estadísticas</button>
       </div>
     </div>
   </div>
   <script src="./js/jquery.js"></script>
   <script src="./js/popper.js"></script>
   <script src="./js/bootstrap.js"></script>
+  <script src="./js/chart.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>
